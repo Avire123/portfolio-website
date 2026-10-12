@@ -32,36 +32,49 @@
       </p>
     </section>
 
-    <!-- Core Skills -->
+    <!-- Interactive Search & Tech Stack Filter Section -->
     <section class="mb-12">
-      <h2 class="text-xl font-semibold mb-4 text-slate-200">Tech Stack & Tools</h2>
-      <div class="flex flex-wrap gap-2 text-xs font-semibold">
-        <span class="bg-slate-800 border border-slate-700 text-cyan-300 px-3 py-1.5 rounded-md">Python</span>
-        <span class="bg-slate-800 border border-slate-700 text-cyan-300 px-3 py-1.5 rounded-md">Streamlit</span>
-        <span class="bg-slate-800 border border-slate-700 text-cyan-300 px-3 py-1.5 rounded-md">FastAPI</span>
-        <span class="bg-slate-800 border border-slate-700 text-cyan-300 px-3 py-1.5 rounded-md">DuckDB & SQL</span>
-        <span class="bg-slate-800 border border-slate-700 text-cyan-300 px-3 py-1.5 rounded-md">Pandas & NumPy</span>
-        <span class="bg-slate-800 border border-slate-700 text-cyan-300 px-3 py-1.5 rounded-md">Machine Learning (XGBoost)</span>
-        <span class="bg-slate-800 border border-slate-700 text-cyan-300 px-3 py-1.5 rounded-md">Jupyter Notebooks</span>
-        <span class="bg-slate-800 border border-slate-700 text-cyan-300 px-3 py-1.5 rounded-md">JavaScript / HTML / CSS</span>
-        <span class="bg-slate-800 border border-slate-700 text-cyan-300 px-3 py-1.5 rounded-md">Docker</span>
+      <h2 class="text-xl font-semibold mb-4 text-slate-200">Filter Projects & Technologies</h2>
+      
+      <!-- Search Input -->
+      <div class="relative mb-4">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search projects by name, description, or stack (e.g. FastAPI, XGBoost, NLP)..." 
+          class="w-full bg-slate-800 border border-slate-700 text-slate-100 placeholder-slate-500 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-cyan-500 transition"
+        />
+      </div>
+
+      <!-- Quick Filter Tag Pills -->
+      <div class="flex flex-wrap gap-2 text-xs font-semibold" id="filter-pills">
+        <button class="filter-pill bg-cyan-500 text-slate-950 px-3 py-1.5 rounded-md transition" data-tech="All">All</button>
+        <button class="filter-pill bg-slate-800 border border-slate-700 text-cyan-300 hover:border-cyan-500 px-3 py-1.5 rounded-md transition" data-tech="Python">Python</button>
+        <button class="filter-pill bg-slate-800 border border-slate-700 text-cyan-300 hover:border-cyan-500 px-3 py-1.5 rounded-md transition" data-tech="Streamlit">Streamlit</button>
+        <button class="filter-pill bg-slate-800 border border-slate-700 text-cyan-300 hover:border-cyan-500 px-3 py-1.5 rounded-md transition" data-tech="FastAPI">FastAPI</button>
+        <button class="filter-pill bg-slate-800 border border-slate-700 text-cyan-300 hover:border-cyan-500 px-3 py-1.5 rounded-md transition" data-tech="Machine Learning">Machine Learning</button>
+        <button class="filter-pill bg-slate-800 border border-slate-700 text-cyan-300 hover:border-cyan-500 px-3 py-1.5 rounded-md transition" data-tech="Pandas">Pandas</button>
+        <button class="filter-pill bg-slate-800 border border-slate-700 text-cyan-300 hover:border-cyan-500 px-3 py-1.5 rounded-md transition" data-tech="Jupyter">Jupyter</button>
       </div>
     </section>
 
     <!-- Featured GitHub Projects -->
     <section class="mb-12">
-      <h2 class="text-xl font-semibold mb-6 text-slate-200">GitHub Repositories</h2>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-semibold text-slate-200">GitHub Repositories</h2>
+        <span id="project-count" class="text-xs text-slate-400">Showing 8 repositories</span>
+      </div>
       
-      <div class="grid md:grid-cols-2 gap-6">
+      <div class="grid md:grid-cols-2 gap-6" id="projects-grid">
         
         <!-- Repo: web3_data_project -->
-        <div class="p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between">
+        <div class="project-card p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between" data-tags="python pandas data-visualization web3 full-stack data-analysis">
           <div>
             <div class="flex justify-between items-start mb-3">
-              <h3 class="font-bold text-lg text-white">web3_data_project</h3>
+              <h3 class="font-bold text-lg text-white card-title">web3_data_project</h3>
               <span class="text-xs bg-slate-900 text-cyan-300 px-2 py-1 rounded border border-slate-700">Python</span>
             </div>
-            <p class="text-sm text-slate-400 mb-4">
+            <p class="text-sm text-slate-400 mb-4 card-desc">
               Full-stack Web3 intelligence platform combining GitHub developer activity with crypto market data to evaluate project maturity.
             </p>
           </div>
@@ -69,13 +82,13 @@
         </div>
 
         <!-- Repo: credit-risk-engine -->
-        <div class="p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between">
+        <div class="project-card p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between" data-tags="python streamlit fastapi xgboost duckdb machine-learning credit-risk">
           <div>
             <div class="flex justify-between items-start mb-3">
-              <h3 class="font-bold text-lg text-white">credit-risk-engine</h3>
+              <h3 class="font-bold text-lg text-white card-title">credit-risk-engine</h3>
               <span class="text-xs bg-slate-900 text-cyan-300 px-2 py-1 rounded border border-slate-700">Python / Streamlit</span>
             </div>
-            <p class="text-sm text-slate-400 mb-4">
+            <p class="text-sm text-slate-400 mb-4 card-desc">
               AI Credit Risk Engine for credit underwriting and portfolio analytics built with Python, FastAPI, Streamlit, XGBoost, and DuckDB.
             </p>
           </div>
@@ -83,13 +96,13 @@
         </div>
 
         <!-- Repo: news-sentiment-dashboard -->
-        <div class="p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between">
+        <div class="project-card p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between" data-tags="python fastapi nlp vader streamlit docker sqlalchemy">
           <div>
             <div class="flex justify-between items-start mb-3">
-              <h3 class="font-bold text-lg text-white">news-sentiment-dashboard</h3>
+              <h3 class="font-bold text-lg text-white card-title">news-sentiment-dashboard</h3>
               <span class="text-xs bg-slate-900 text-cyan-300 px-2 py-1 rounded border border-slate-700">FastAPI / NLP</span>
             </div>
-            <p class="text-sm text-slate-400 mb-4">
+            <p class="text-sm text-slate-400 mb-4 card-desc">
               End-to-end real-time news sentiment pipeline with RSS ingestion, VADER NLP, SQLAlchemy, FastAPI REST endpoints, and Streamlit.
             </p>
           </div>
@@ -97,13 +110,13 @@
         </div>
 
         <!-- Repo: flight-forecaster -->
-        <div class="p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between">
+        <div class="project-card p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between" data-tags="python streamlit machine-learning forecasting data-engineering">
           <div>
             <div class="flex justify-between items-start mb-3">
-              <h3 class="font-bold text-lg text-white">flight-forecaster</h3>
+              <h3 class="font-bold text-lg text-white card-title">flight-forecaster</h3>
               <span class="text-xs bg-slate-900 text-cyan-300 px-2 py-1 rounded border border-slate-700">Machine Learning</span>
             </div>
-            <p class="text-sm text-slate-400 mb-4">
+            <p class="text-sm text-slate-400 mb-4 card-desc">
               Streamlit app forecasting flight fare trends for African airlines and international routes using Kenyan shilling (KES) pricing models.
             </p>
           </div>
@@ -111,13 +124,13 @@
         </div>
 
         <!-- Repo: used-car-price-intelligence -->
-        <div class="p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between">
+        <div class="project-card p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between" data-tags="python machine-learning scikit-learn pandas regression">
           <div>
             <div class="flex justify-between items-start mb-3">
-              <h3 class="font-bold text-lg text-white">used-car-price-intelligence</h3>
+              <h3 class="font-bold text-lg text-white card-title">used-car-price-intelligence</h3>
               <span class="text-xs bg-slate-900 text-cyan-300 px-2 py-1 rounded border border-slate-700">Python ML</span>
             </div>
-            <p class="text-sm text-slate-400 mb-4">
+            <p class="text-sm text-slate-400 mb-4 card-desc">
               Machine learning valuation tool estimating fair market value of vehicles and flagging bargain vs overpriced listings.
             </p>
           </div>
@@ -125,13 +138,13 @@
         </div>
 
         <!-- Repo: ecommerce-demand-app -->
-        <div class="p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between">
+        <div class="project-card p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between" data-tags="python xgboost streamlit machine-learning e-commerce elasticity">
           <div>
             <div class="flex justify-between items-start mb-3">
-              <h3 class="font-bold text-lg text-white">ecommerce-demand-app</h3>
+              <h3 class="font-bold text-lg text-white card-title">ecommerce-demand-app</h3>
               <span class="text-xs bg-slate-900 text-cyan-300 px-2 py-1 rounded border border-slate-700">XGBoost / Streamlit</span>
             </div>
-            <p class="text-sm text-slate-400 mb-4">
+            <p class="text-sm text-slate-400 mb-4 card-desc">
               End-to-end ML application using XGBoost and Streamlit to forecast e-commerce sales volume and simulate price elasticity.
             </p>
           </div>
@@ -139,13 +152,13 @@
         </div>
 
         <!-- Repo: kiva-microfinance-intelligence -->
-        <div class="p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between">
+        <div class="project-card p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between" data-tags="python jupyter pandas eda data-analysis microfinance">
           <div>
             <div class="flex justify-between items-start mb-3">
-              <h3 class="font-bold text-lg text-white">kiva-microfinance-intelligence</h3>
+              <h3 class="font-bold text-lg text-white card-title">kiva-microfinance-intelligence</h3>
               <span class="text-xs bg-slate-900 text-cyan-300 px-2 py-1 rounded border border-slate-700">EDA / Pandas</span>
             </div>
-            <p class="text-sm text-slate-400 mb-4">
+            <p class="text-sm text-slate-400 mb-4 card-desc">
               Data science analysis of 671K+ Kiva microfinance loans uncovering crowdfunding success drivers and borrowing behavior.
             </p>
           </div>
@@ -153,13 +166,13 @@
         </div>
 
         <!-- Repo: UBER-DATA-ANALYSYS -->
-        <div class="p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between">
+        <div class="project-card p-6 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-cyan-500/50 transition flex flex-col justify-between" data-tags="python jupyter pandas data-analysis uber eda">
           <div>
             <div class="flex justify-between items-start mb-3">
-              <h3 class="font-bold text-lg text-white">UBER-DATA-ANALYSYS</h3>
+              <h3 class="font-bold text-lg text-white card-title">UBER-DATA-ANALYSYS</h3>
               <span class="text-xs bg-slate-900 text-cyan-300 px-2 py-1 rounded border border-slate-700">Python / Analytics</span>
             </div>
-            <p class="text-sm text-slate-400 mb-4">
+            <p class="text-sm text-slate-400 mb-4 card-desc">
               Exploratory analysis of 200,000 Uber trip records uncovering demand patterns, peak hours, pickup hotspots, and fare dynamics.
             </p>
           </div>
@@ -167,6 +180,9 @@
         </div>
 
       </div>
+
+      <!-- No Results State -->
+      <p id="no-results" class="hidden text-slate-500 text-center py-12">No matching repositories found. Try adjusting your search query or filter.</p>
     </section>
 
     <!-- Footer -->
@@ -176,5 +192,62 @@
     </footer>
 
   </div>
+
+  <!-- Client-Side Filter Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('search-input');
+      const filterPills = document.querySelectorAll('.filter-pill');
+      const cards = document.querySelectorAll('.project-card');
+      const countEl = document.getElementById('project-count');
+      const noResults = document.getElementById('no-results');
+
+      let activeTech = 'All';
+
+      function filterProjects() {
+        const query = searchInput.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const title = card.querySelector('.card-title').textContent.toLowerCase();
+          const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+          const tags = card.getAttribute('data-tags').toLowerCase();
+
+          const matchesSearch = title.includes(query) || desc.includes(query) || tags.includes(query);
+          const matchesTech = activeTech === 'All' || tags.includes(activeTech.toLowerCase());
+
+          if (matchesSearch && matchesTech) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        countEl.textContent = `Showing ${visibleCount} of ${cards.length} repositories`;
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      }
+
+      // Search input handler
+      searchInput.addEventListener('input', filterProjects);
+
+      // Tech pill click handler
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => {
+            p.className = 'filter-pill bg-slate-800 border border-slate-700 text-cyan-300 hover:border-cyan-500 px-3 py-1.5 rounded-md transition';
+          });
+          pill.className = 'filter-pill bg-cyan-500 text-slate-950 font-bold px-3 py-1.5 rounded-md transition';
+          
+          activeTech = pill.getAttribute('data-tech');
+          filterProjects();
+        });
+      });
+    });
+  </script>
 </body>
 </html>
